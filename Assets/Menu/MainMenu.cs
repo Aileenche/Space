@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SmartLocalization;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
         transform.Rotate(Vector3.left * Time.deltaTime);
         transform.Rotate(Vector3.up * Time.deltaTime);
+        
     }
 
     void OnGUI()
@@ -23,8 +25,9 @@ public class MainMenu : MonoBehaviour
         if (menulevel == 0)
         {
             if (GUI.Button(new
-             Rect(30, Screen.height - 105, 100, 25), "Connect"))//LanguageHarvester.get("mainmenu_button_connect")))
+             Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
+                LanguageManager.Instance.ChangeLanguage("en-US");
             }
             if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), "Settings"))
             {
