@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-public class Registry : MonoBehaviour
+public class Registry
 {
     public static string getRegistryEntry(string key)
     {
@@ -8,32 +8,66 @@ public class Registry : MonoBehaviour
         object retval = retkey.GetValue(key);
         if (retval == null)
         {
-            string standardKey = hasStandardValue(key);
+            object standardKey = hasStandardValue(key);
             if (standardKey != "ThereisnoKeyforThat!")
             {
                 setRegistryEntry(key, standardKey);
-                return standardKey;
+                return standardKey.ToString();
             }
             return "Registrykey [" + key + "] returns null and has no standard Value";
         }
         return retval.ToString();
     }
-    public static bool setRegistryEntry(string key, string value)
+    public static bool setRegistryEntry(string key, object value)
     {
         Microsoft.Win32.RegistryKey setval = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Space!");
         setval.SetValue(key, value);
         setval.Close();
         return false;
     }
-    private static string hasStandardValue(string key)
+    private static object hasStandardValue(string key)
     {
         switch (key)
         {
-            case ("RememberMe"): return "false";
-            case ("Language"): return "de";
-            case ("LogMeIn"): return "false";
-            case ("FPSCounter"): return "false";
+            case ("RememberMe"): return false;
+            case ("LogMeIn"): return false;
+            case ("FPSCounter"): return false;
         }
         return "ThereisnoKeyforThat!";
+    }
+
+    internal static bool getRegistryBool(string key)
+    {
+        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Space!");
+        object retval = retkey.GetValue(key);
+        object standardKey = "notSetYet";
+        if (retval == null)
+        {
+            standardKey = hasStandardValue(key);
+            if (standardKey != "ThereisnoKeyforThat!")
+            {
+                setRegistryEntry(key, standardKey);
+                if (standardKey.ToString().ToLower() == "true")
+                {
+                    return true;
+                }
+                if (standardKey.ToString().ToLower() == "false")
+                {
+                    return false;
+                }
+            } 
+            Debug.Log("Registrykey [" + key + "] returns null and has no standard Value. retval[" + retval + "] standardvalue[" + standardKey + "]");
+            return false;
+        }
+        if (retval.ToString().ToLower() == "true")
+        {
+            return true;
+        }
+        if (retval.ToString().ToLower() == "false")
+        {
+            return false;
+        }
+        Debug.Log("Registrykey [" + key + "] returns null and has no standard Value. retval["+retval+"]");
+        return false;
     }
 }

@@ -4,43 +4,26 @@ using System.Collections.Generic;
 
 public class Dataharvester : MonoBehaviour
 {
-
-    private static Dictionary<string, object> dataharv = new Dictionary<string, object>();
+    public static Setting FPSCounter;
+    public static Setting RememberMe;
+    public static Setting LogMeIn;
+    public static Setting Username;
+    public static Setting Password;
+    public static Setting isOnline;
 
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
-        dataharv.Add("FPSCounter", Registry.getRegistryEntry("FPSCounter"));
-        dataharv.Add("Language", Registry.getRegistryEntry("Language"));
-        dataharv.Add("RememberMe", Registry.getRegistryEntry("RememberMe"));
-        dataharv.Add("LogMeIn", Registry.getRegistryEntry("LogMeIn"));
-        dataharv.Add("Username", Registry.getRegistryEntry("Username"));
-        dataharv.Add("Password", Registry.getRegistryEntry("Password"));
+        FPSCounter = new Setting("FPSCounter", Registry.getRegistryBool("FPSCounter"));
+        RememberMe = new Setting("RememberMe", Registry.getRegistryBool("RememberMe"));
+        LogMeIn = new Setting("LogMeIn", Registry.getRegistryBool("LogMeIn"));
+        Username = new Setting("Username", Registry.getRegistryBool("Username"));
+        Password = new Setting("Password", Registry.getRegistryBool("Password"));
+        isOnline = new Setting("Password", false);
     }
-    public static bool set(string key, object Value)
+    public static void set(object key, object Value)
     {
-        if (dataharv.ContainsKey(key))
-        {
-            dataharv.Remove(key);
-            dataharv.Add(key, Value);
-            Registry.setRegistryEntry(key,Value.ToString());
-        }
-        else
-        {
-            dataharv.Add(key, Value);
-            Registry.setRegistryEntry(key, Value.ToString());
-        }
-        return false;
-    }
-    public static object get(string key)
-    {
-
-        if (dataharv.ContainsKey(key))
-        {
-            return dataharv[key];
-        }
-        Debug.Log("Dataharvester was queried with nonexisting [" + key + "]");
-        return false;
+        Registry.setRegistryEntry(key.ToString(), Value.ToString());
     }
 }

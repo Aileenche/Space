@@ -34,7 +34,7 @@ public class HUDFPS : MonoBehaviour {
 	
 	void Update()
 	{
-        if (Dataharvester.get("FPSCounter").ToString().ToLower() != "true")
+        if (!Dataharvester.FPSCounter.getBool())
         {
             guiText.text = "";
             return;

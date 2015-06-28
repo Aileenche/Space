@@ -50,7 +50,12 @@
      <Compile Include="Assets\Scripts\Dataharvester.cs" />
      <Compile Include="Assets\Scripts\Functions.cs" />
      <Compile Include="Assets\Scripts\HUDFPS.cs" />
+     <Compile Include="Assets\Scripts\ServerConnector.cs" />
+     <Compile Include="Assets\Scripts\Subclasses\Error.cs" />
+     <Compile Include="Assets\Scripts\Subclasses\ErrorPopup.cs" />
+     <Compile Include="Assets\Scripts\Subclasses\Setting.cs" />
      <Compile Include="Assets\Scripts\Subfunctions\Registry.cs" />
+     <Compile Include="Assets\Scripts\game.cs" />
      <Compile Include="Assets\SmartLocalization\Examples\LoadAllLanguages.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUILabel.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUISpriteAtlas.cs" />

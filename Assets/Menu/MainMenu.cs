@@ -17,17 +17,20 @@ public class MainMenu : MonoBehaviour
     {
         transform.Rotate(Vector3.left * Time.deltaTime);
         transform.Rotate(Vector3.up * Time.deltaTime);
-        
+
     }
 
     void OnGUI()
     {
+        GUI.color = Color.cyan;
         if (menulevel == 0)
         {
             if (GUI.Button(new
              Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
-                LanguageManager.Instance.ChangeLanguage("en-US");
+                //LanguageManager.Instance.ChangeLanguage("en-US");
+
+                menulevel = 2;
             }
             if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
             {
@@ -42,7 +45,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (menulevel == 1) //SETTINGS
         {
-            if (GUI.Button(new Rect(30, Screen.height - 175, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fullscreen")))
+            if (GUI.Button(new Rect(30, Screen.height - 175, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fullscreen")))
             {
                 if (Screen.fullScreen)
                 {
@@ -54,18 +57,18 @@ public class MainMenu : MonoBehaviour
                 }
             }
             //FPSCounter
-            if (Dataharvester.get("FPSCounter").ToString().ToLower() == "true")
+            if (Dataharvester.FPSCounter.getBool())
             {
                 if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpsoff")))
                 {
-                    Dataharvester.set("FPSCounter", false);
+                    Dataharvester.FPSCounter.set(false);
                 }
             }
             else
             {
                 if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpson")))
                 {
-                    Dataharvester.set("FPSCounter", true);
+                    Dataharvester.FPSCounter.set(true);
                 }
             }
             //Quality
@@ -95,6 +98,26 @@ public class MainMenu : MonoBehaviour
             {
                 menulevel = 0;
             }
+        }
+        else if (menulevel == 2)
+        {
+            GUI.BeginGroup(new Rect((Screen.width - 500) / 2, (Screen.height - 300) / 2, 500, 300));
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height),"");
+            GUI.TextField(new Rect(0, 0, 200, 50), "Username");
+            GUI.PasswordField(new Rect(0, 55, 200, 50),"Password",char.Parse("*"));
+            if (GUI.Toggle(new Rect(0, 110, 200, 50), Dataharvester.RememberMe.getBool(), "Rememberme"))
+            {
+                if (Dataharvester.RememberMe.getBool())
+                {
+                    Dataharvester.RememberMe.set(false);
+                }
+                else
+                {
+                    Dataharvester.RememberMe.set(true);
+                }
+            }
+            GUI.EndGroup();
+
         }
     }
 
