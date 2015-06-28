@@ -119,4 +119,28 @@
 	<data name="mainmenu_button_connect" xml:space="preserve">
 		<value>Verbinden</value>
 	</data>
+	<data name="mainmenu_button_exit" xml:space="preserve">
+		<value>Beenden</value>
+	</data>
+	<data name="mainmenu_button_settings" xml:space="preserve">
+		<value>Einstellungen</value>
+	</data>
+	<data name="settingsmenu_button_back" xml:space="preserve">
+		<value>Zurück</value>
+	</data>
+	<data name="settingsmenu_button_fpsoff" xml:space="preserve">
+		<value>FPS Zähler aus</value>
+	</data>
+	<data name="settingsmenu_button_fpson" xml:space="preserve">
+		<value>FPS Zähler an</value>
+	</data>
+	<data name="settingsmenu_button_higherdetails" xml:space="preserve">
+		<value>Mehr Details</value>
+	</data>
+	<data name="settingsmenu_button_lowerdetails" xml:space="preserve">
+		<value>Weniger Details</value>
+	</data>
+	<data name="settingsmenu_button_fullscreen" xml:space="preserve">
+		<value />
+	</data>
 </root>

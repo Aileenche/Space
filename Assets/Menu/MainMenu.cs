@@ -29,11 +29,11 @@ public class MainMenu : MonoBehaviour
             {
                 LanguageManager.Instance.ChangeLanguage("en-US");
             }
-            if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), "Settings"))
+            if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
             {
                 menulevel = 1;
             }
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), "Quit"))
+            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_exit")))
             {
                 Application.Quit();
 
@@ -42,18 +42,28 @@ public class MainMenu : MonoBehaviour
         }
         else if (menulevel == 1) //SETTINGS
         {
+            if (GUI.Button(new Rect(30, Screen.height - 175, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fullscreen")))
+            {
+                if (Screen.fullScreen)
+                {
+                    Screen.fullScreen = false;
+                }
+                else
+                {
+                    Screen.SetResolution(1920, 1080, true);
+                }
+            }
             //FPSCounter
-
             if (Dataharvester.get("FPSCounter").ToString().ToLower() == "true")
             {
-                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), "Toggle FPS Counter Off"))
+                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpsoff")))
                 {
                     Dataharvester.set("FPSCounter", false);
                 }
             }
             else
             {
-                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), "Toggle FPS Counter On"))
+                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpson")))
                 {
                     Dataharvester.set("FPSCounter", true);
                 }
@@ -63,7 +73,7 @@ public class MainMenu : MonoBehaviour
 
             if (quality > 0)
             {
-                if (GUI.Button(new Rect(30, Screen.height - 105, 250, 25), "Set Details Lower"))
+                if (GUI.Button(new Rect(30, Screen.height - 105, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_lowerdetails")))
                 {
                     QualitySettings.DecreaseLevel();
                 }
@@ -71,7 +81,7 @@ public class MainMenu : MonoBehaviour
 
             if (quality < 5)
             {
-                if (GUI.Button(new Rect(30, Screen.height - 70, 250, 25), "Set Details Higher"))
+                if (GUI.Button(new Rect(30, Screen.height - 70, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_higherdetails")))
                 {
                     QualitySettings.IncreaseLevel();
                 }
@@ -81,7 +91,7 @@ public class MainMenu : MonoBehaviour
 
 
             //Back
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), "Back"))
+            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
             {
                 menulevel = 0;
             }
