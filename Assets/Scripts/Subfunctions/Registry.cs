@@ -30,7 +30,6 @@ public class Registry
         switch (key)
         {
             case ("RememberMe"): return false;
-            case ("LogMeIn"): return false;
             case ("FPSCounter"): return false;
         }
         return "ThereisnoKeyforThat!";

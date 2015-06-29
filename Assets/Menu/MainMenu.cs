@@ -7,6 +7,10 @@ public class MainMenu : MonoBehaviour
     // Use this for initialization
     private int menulevel;
     private MessageData msg = new MessageData();
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     void Start()
     {
         Functions.tryLogin();
@@ -30,10 +34,10 @@ public class MainMenu : MonoBehaviour
              Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
                 //LanguageManager.Instance.ChangeLanguage("en-US");
-                msg.type = 0;
-                msg.stringData = "TESTSTRING!!!";
+                msg.type = 10;
+                msg.stringData = "Hallo Eddy";
                 game.Send(msg);
-                //menulevel = 2;
+                menulevel = 2;
             }
             if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
             {
@@ -104,24 +108,46 @@ public class MainMenu : MonoBehaviour
         }
         else if (menulevel == 2)
         {
-            GUI.BeginGroup(new Rect((Screen.width - 500) / 2, (Screen.height - 300) / 2, 500, 300));
-            GUI.Box(new Rect(0, 0, Screen.width, Screen.height),"");
-            GUI.TextField(new Rect(0, 0, 200, 50), "Username");
-            GUI.PasswordField(new Rect(0, 55, 200, 50),"Password",char.Parse("*"));
-            if (GUI.Toggle(new Rect(0, 110, 200, 50), Dataharvester.RememberMe.getBool(), "Rememberme"))
+            GUI.BeginGroup(new Rect((Screen.width - 500) / 2, (Screen.height - 300) / 2, 500, 300), "", "Box");
+            string Username = GUI.TextField(new Rect(0, 0, 200, 28), Dataharvester.Username.getString());
+            Dataharvester.Username.set(Username);
+            string Password = GUI.PasswordField(new Rect(0, 55, 200, 28), Dataharvester.Password.getString(), char.Parse("*"));
+            Dataharvester.Password.set(Password);
+            bool RememberMe = GUI.Toggle(new Rect(0, 110, 200, 50), Dataharvester.RememberMe.getBool(), "Rememberme");
+            Dataharvester.RememberMe.set(RememberMe);
+            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
             {
-                if (Dataharvester.RememberMe.getBool())
-                {
-                    Dataharvester.RememberMe.set(false);
-                }
-                else
-                {
-                    Dataharvester.RememberMe.set(true);
-                }
+                menulevel = 0;
             }
             GUI.EndGroup();
+            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
+            {
+                saveUserCredentials(RememberMe,Username,Password);
+                menulevel = 0;
+            }
 
         }
     }
 
+    private void saveUserCredentials(bool RememberMe, string Username, string Password)
+    {
+        if (RememberMe)
+        {
+            Dataharvester.Username.set(Username);
+            Dataharvester.Password.set(Password);
+            Dataharvester.RememberMe.set(RememberMe);
+            Dataharvester.set("Username", Username);
+            Dataharvester.set("Password", Password);
+            Dataharvester.set("RememberMe", RememberMe);
+        }
+        else
+        {
+            Dataharvester.Username.set("Username");
+            Dataharvester.Password.set("");
+            Dataharvester.RememberMe.set(RememberMe);
+            Dataharvester.set("Username", "Username");
+            Dataharvester.set("Password", "");
+            Dataharvester.set("RememberMe", "RememberMe");
+        }
+    }
 }

@@ -14,9 +14,10 @@ public class game : MonoBehaviour {
     private Socket sServer;
     ErrorPopup errorHandler;
     Rect errorWindow = new Rect((Screen.width - 800) / 2, (Screen.height - 300) / 2, 800, 300);
-    
+
     void Awake()
     {
+        DontDestroyOnLoad(this);
         errorHandler = new ErrorPopup();
         gameObject.AddComponent("Dataharvester");
         gameObject.AddComponent("MainMenu");
