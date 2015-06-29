@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     // Use this for initialization
     private int menulevel;
+    private MessageData msg = new MessageData();
     void Start()
     {
         Functions.tryLogin();
@@ -29,8 +30,10 @@ public class MainMenu : MonoBehaviour
              Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
                 //LanguageManager.Instance.ChangeLanguage("en-US");
-
-                menulevel = 2;
+                msg.type = 0;
+                msg.stringData = "TESTSTRING!!!";
+                game.Send(msg);
+                //menulevel = 2;
             }
             if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
             {
