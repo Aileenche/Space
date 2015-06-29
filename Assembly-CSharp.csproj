@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\ServerConnector.cs" />
      <Compile Include="Assets\Scripts\Subclasses\Error.cs" />
      <Compile Include="Assets\Scripts\Subclasses\ErrorPopup.cs" />
+     <Compile Include="Assets\Scripts\Subclasses\MessageData.cs" />
      <Compile Include="Assets\Scripts\Subclasses\Setting.cs" />
      <Compile Include="Assets\Scripts\Subfunctions\Registry.cs" />
      <Compile Include="Assets\Scripts\game.cs" />
