@@ -38,11 +38,11 @@ public class HUDFPS : MonoBehaviour {
 	
 	void Update()
 	{
-        if (!Dataharvester.FPSCounter.getBool())
-        {
-            GetComponent<GUIText>().text = "";
-            return;
-        }
+        //if (!Dataharvester.FPSCounter.getBool())
+        //{
+        //    GetComponent<GUIText>().text = "";
+        //    return;
+        //}
 		timeleft -= Time.deltaTime;
 		accum += Time.timeScale/Time.deltaTime;
 		++frames;

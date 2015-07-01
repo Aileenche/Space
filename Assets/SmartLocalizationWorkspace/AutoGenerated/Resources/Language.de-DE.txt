@@ -116,6 +116,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+	<data name="error_Networking_Server_unavaliable" xml:space="preserve">
+		<value>Der Server antwortet nicht.
+Versuch es bitte später nochmal.</value>
+	</data>
+	<data name="error_Networking_Server_unavaliable_Topic" xml:space="preserve">
+		<value>Server nicht erreichbar</value>
+	</data>
 	<data name="errorwindow_button_okay" xml:space="preserve">
 		<value>Okay</value>
 	</data>
