@@ -82,6 +82,9 @@
  <Reference Include="SmartLocalization_Runtime">
  <HintPath>C:/Users/Admin/Documents/Space/Assets/SmartLocalization/SmartLocalization_Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Packet">
+ <HintPath>C:/Users/Admin/Documents/Space/Assets/Resources/Libs/Packet.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
