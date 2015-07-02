@@ -28,7 +28,6 @@ public class Main : MonoBehaviour
     {
         if (errorHandler.liste.Count > 0)
         {
-
             GUI.color = Color.red;
             Error err = (Error)errorHandler.liste[0];
             errorWindow = GUI.Window(0, errorWindow, DoMyWindow, err.getTitle());
