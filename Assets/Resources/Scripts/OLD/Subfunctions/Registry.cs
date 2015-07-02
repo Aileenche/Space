@@ -5,7 +5,7 @@ public class Registry
 {
     public static string getRegistryEntry(string key)
     {
-        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Space");
+        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(Reference.registryname);
         object retval;
         try
         {
@@ -29,7 +29,7 @@ public class Registry
     }
     public static bool setRegistryEntry(string key, object value)
     {
-        Microsoft.Win32.RegistryKey setval = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Space");
+        Microsoft.Win32.RegistryKey setval = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(Reference.registryname);
         setval.SetValue(key, value);
         setval.Close();
         return false;
@@ -46,12 +46,14 @@ public class Registry
 
     internal static bool getRegistryBool(string key)
     {
-        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Space");
+        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(Reference.registryname);
         object retval;
-        try {
-        retval = retkey.GetValue(key);
+        try
+        {
+            retval = retkey.GetValue(key);
         }
-        catch  (Exception e) {
+        catch (Exception e)
+        {
             retval = "notSetYet";
         }
         object standardKey = "notSetYet";
@@ -69,7 +71,7 @@ public class Registry
                 {
                     return false;
                 }
-            } 
+            }
             Debug.Log("Registrykey [" + key + "] returns null and has no standard Value. retval[" + retval + "] standardvalue[" + standardKey + "]");
             return false;
         }
@@ -81,7 +83,39 @@ public class Registry
         {
             return false;
         }
-        Debug.Log("Registrykey [" + key + "] returns null and has no standard Value. retval["+retval+"]");
+        Debug.Log("Registrykey [" + key + "] returns null and has no standard Value. retval[" + retval + "]");
         return false;
+    }
+    public static void setupRegistry()
+    {
+        createIfNotExist("rememberme", "true");
+        createIfNotExist("username", "Username");
+        createIfNotExist("password", "");
+        createIfNotExist("fullscreen", "true");
+        createIfNotExist("screenwidth", "1920");
+        createIfNotExist("screenheight", "1080");
+        createIfNotExist("antialiasing", "8");
+        createIfNotExist("vsync", "1");
+        createIfNotExist("runinbackground", "true");
+    }
+    private static void createIfNotExist(string key, string value)
+    {
+        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(Reference.registryname);
+        object retval;
+        try
+        {
+            //Debug.Log("Fetching " +key);
+            retval = retkey.GetValue(key);
+            //Debug.Log("Returned " + retval);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error " + e);
+            retval = null;
+        }
+        if (retval == null)
+        {
+            setRegistryEntry(key, value);
+        }
     }
 }

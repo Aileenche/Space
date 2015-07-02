@@ -18,28 +18,17 @@ public class Client : MonoBehaviour
             return isConnected;
         }
     }
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
-    public string ID = "40";
+    
+    public string ID = "0";
     public string login = "Aileen";
-    ErrorPopup errorHandler;
-    Rect errorWindow = new Rect((Screen.width - 800) / 2, (Screen.height - 300) / 2, 800, 300);
 
     private bool isConnected = false;
     private Socket socket;
     private Thread thread;
     private IPAddress ipAdress;
 
-    void Update()
-    {
-        transform.Rotate(Vector3.left * Time.deltaTime);
-        transform.Rotate(Vector3.up * Time.deltaTime);
-    }
 
-    void OnApplicationQuit()
+    public void CloseConnection()
     {
         socket.Close();
         thread.Abort();
@@ -68,9 +57,8 @@ public class Client : MonoBehaviour
         }
         return false;
     }
-    void Start()
+    public void Start()
     {
-        errorHandler = new ErrorPopup();
         ipAdress = IPAddress.Parse("5.9.251.202");
         int retrys = 4;
         while (!isConnected && retrys >= 0)
@@ -78,7 +66,10 @@ public class Client : MonoBehaviour
             Connect();
             retrys--;
         }
-        errorHandler.add(LanguageManager.Instance.GetTextValue("error_Networking_Server_unavaliable_Topic"), LanguageManager.Instance.GetTextValue("error_Networking_Server_unavaliable"));
+        if (!isConnected)
+        {
+            Main.errorHandler.add(LanguageManager.Instance.GetTextValue("error_Networking_Server_unavaliable_Topic"), LanguageManager.Instance.GetTextValue("error_Networking_Server_unavaliable"));
+        }
 
     }
 
@@ -105,39 +96,19 @@ public class Client : MonoBehaviour
             }
         }
     }
-    void OnGUI()
-    {
-        if (errorHandler.liste.Count > 0)
-        {
-
-            GUI.color = Color.red;
-            Error err = (Error)errorHandler.liste[0];
-            errorWindow = GUI.Window(0, errorWindow, DoMyWindow, err.getTitle());
-        }
-    }
-    void DoMyWindow(int windowID)
-    {
-        if (errorHandler.liste.Count > 0)
-        {
-            Error err = (Error)errorHandler.liste[0];
-            GUI.TextField(new Rect(5, 25, 790, 250), err.getText());
-        }
-        else
-        {
-            GUI.TextArea(new Rect(5, 25, 790, 250), "Hier stimmt was nicht, kann Fehlermeldung nicht lesen!");
-        }
-        if (GUI.Button(new Rect(350, 275, 100, 20), LanguageManager.Instance.GetTextValue("errorwindow_button_okay")))
-        {
-            errorHandler.liste.RemoveAt(0);
-        }
-
-        GUI.DragWindow(new Rect(0, 0, 10000, 10000));
-    }
     private void DataManager(Packet p)
     {
-        // Debug.Log("test");
         switch (p.packetType)
         {
+            case PacketType.getNews:
+                Debug.Log("Got News!");
+                string news = "";
+                foreach (string values in p.data)
+                {
+                    news += values;
+                }
+                MainMenu.news = news;
+                break;
             case PacketType.Registration:
                 ID = p.data[0];
                 Packet packet = new Packet(PacketType.Chat, ID);
@@ -145,8 +116,6 @@ public class Client : MonoBehaviour
                 packet.data.Add("Enter to Chat");
                 socket.Send(packet.ToBytes());
                 break;
-
-
             case PacketType.Chat:
                 Debug.Log(p.data[0]);
                 break;
@@ -155,28 +124,14 @@ public class Client : MonoBehaviour
                 break;
         }
     }
-
+    public void send(Packet p)
+    {
+        socket.Send(p.ToBytes());
+    }
     private void ConnectionToServerLost()
     {
         Debug.Log("Server disconnected");
         socket.Close();
         thread.Abort();
-    }
-    public static MessageData FromByteArray(byte[] input)
-    {
-        MemoryStream stream = new MemoryStream(input);
-
-        System.Runtime.Serialization.Formatters.Binary.BinaryFormatter formatter = new
-        System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-        MessageData data = new MessageData();
-        data.type = (int)formatter.Deserialize(stream);
-        data.stringData = (string)formatter.Deserialize(stream);
-
-        if (data.stringData == "")
-        {
-            data.type = 999;
-            data.stringData = "No Command Included";
-        }
-        return data;
     }
 }

@@ -46,9 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\Functions.cs" />
+     <Compile Include="Assets\Resources\Scripts\Main.cs" />
      <Compile Include="Assets\Resources\Scripts\Network\Client.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\Dataharvester.cs" />
-     <Compile Include="Assets\Resources\Scripts\OLD\Functions.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\HUDFPS.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\Menu\MainMenu.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\Subclasses\Error.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Resources\Scripts\OLD\Subclasses\Setting.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\game.cs" />
+     <Compile Include="Assets\Resources\Scripts\Reference.cs" />
      <Compile Include="Assets\SmartLocalization\Examples\LoadAllLanguages.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUILabel.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUISpriteAtlas.cs" />

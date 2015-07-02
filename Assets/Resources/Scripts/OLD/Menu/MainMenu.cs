@@ -2,42 +2,24 @@
 using System.Collections;
 using SmartLocalization;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu
 {
     // Use this for initialization
-    private int menulevel;
-    private MessageData msg = new MessageData();
-    public void Awake()
+    private int menulevel = 0;
+    public static string news = "";
+    public void Start()
     {
-        DontDestroyOnLoad(this);
-    }
-    void Start()
-    {
-        LanguageManager.Instance.ChangeLanguage(Dataharvester.Language.getString());
-        Functions.tryLogin();
-        menulevel = 0;
+        //LanguageManager.Instance.ChangeLanguage(Dataharvester.Language.getString());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Rotate(Vector3.left * Time.deltaTime);
-        transform.Rotate(Vector3.up * Time.deltaTime);
 
-    }
-
-    void OnGUI()
+    public void OnGUI()
     {
         GUI.color = Color.cyan;
         if (menulevel == 0)
         {
-            if (GUI.Button(new
-             Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
+            if (GUI.Button(new Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
-                //LanguageManager.Instance.ChangeLanguage("en-US");
-                msg.type = 10;
-                msg.stringData = "Hallo Eddy";
-                game.Send(msg);
                 menulevel = 2;
             }
             if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
@@ -47,54 +29,61 @@ public class MainMenu : MonoBehaviour
             if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_exit")))
             {
                 Application.Quit();
-
-
             }
+
+            GUI.BeginGroup(new Rect((Screen.width - 250) , 0, 250, Screen.height), "", "Box");
+            if (GUI.Button(new Rect(0, 0, 250, 30), "Refresh"))
+            {
+                Main.networkClient.send(new PacketConnector.Packet(PacketConnector.PacketType.getNews, Main.networkClient.ID));
+            }
+            GUI.color = Color.white;
+            GUI.Label(new Rect(0, 30, 250, Screen.height), ""+news);
+            GUI.color = Color.cyan;
+            GUI.EndGroup();
         }
         else if (menulevel == 1) //SETTINGS
         {
-            //LanguageManager.Instance.ChangeLanguage("en-US");
             if (GUI.Button(new Rect(30, Screen.height - 210, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_language")))
             {
-                if (LanguageManager.Instance.CurrentlyLoadedCulture.languageCode =="de-DE")
-                {
-                    LanguageManager.Instance.ChangeLanguage("en-US");
-                    Dataharvester.Language.set("en-US");
-                    Dataharvester.set("Language","en-US");
-                }
-                else
-                {
-                    LanguageManager.Instance.ChangeLanguage("de-DE");
-                    Dataharvester.Language.set("de-DE");
-                    Dataharvester.set("Language", "de-DE");
-                }
+                //if (LanguageManager.Instance.CurrentlyLoadedCulture.languageCode =="de-DE")
+                //{
+                //    LanguageManager.Instance.ChangeLanguage("en-US");
+                //    Dataharvester.Language.set("en-US");
+                //    Dataharvester.set("Language","en-US");
+                //}
+                //else
+                //{
+                //    LanguageManager.Instance.ChangeLanguage("de-DE");
+                //    Dataharvester.Language.set("de-DE");
+                //    Dataharvester.set("Language", "de-DE");
+                //}
             }
             if (GUI.Button(new Rect(30, Screen.height - 175, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fullscreen")))
             {
-                if (Screen.fullScreen)
-                {
-                    Screen.fullScreen = false;
-                }
-                else
-                {
-                    Screen.SetResolution(1920, 1080, true);
-                }
+                //if (Screen.fullScreen)
+                //{
+                //    Screen.fullScreen = false;
+                //}
+                //else
+                //{
+                //    Screen.SetResolution(1920, 1080, true);
+                //}
             }
             //FPSCounter
-            if (Dataharvester.FPSCounter.getBool())
-            {
-                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpsoff")))
-                {
-                    Dataharvester.FPSCounter.set(false);
-                }
-            }
-            else
-            {
-                if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpson")))
-                {
-                    Dataharvester.FPSCounter.set(true);
-                }
-            }
+            //if (Dataharvester.FPSCounter.getBool())
+            //{
+            //    if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpsoff")))
+            //    {
+            //        Dataharvester.FPSCounter.set(false);
+            //    }
+            //}
+            //else
+            //{
+            //    if (GUI.Button(new Rect(30, Screen.height - 140, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fpson")))
+            //    {
+            //        Dataharvester.FPSCounter.set(true);
+            //    }
+            //}
             //Quality
             int quality = QualitySettings.GetQualityLevel();
 
@@ -102,7 +91,7 @@ public class MainMenu : MonoBehaviour
             {
                 if (GUI.Button(new Rect(30, Screen.height - 105, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_lowerdetails")))
                 {
-                    QualitySettings.DecreaseLevel();
+                    //QualitySettings.DecreaseLevel();
                 }
             }
 
@@ -110,11 +99,11 @@ public class MainMenu : MonoBehaviour
             {
                 if (GUI.Button(new Rect(30, Screen.height - 70, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_higherdetails")))
                 {
-                    QualitySettings.IncreaseLevel();
+                    //QualitySettings.IncreaseLevel();
                 }
             }
 
-            GUI.Label(new Rect(30, Screen.height - 75, 100, 20), Functions.getLocalizedQualityLevel());
+            // GUI.Label(new Rect(30, Screen.height - 75, 100, 20), Functions.getLocalizedQualityLevel());
 
 
             //Back
@@ -125,46 +114,46 @@ public class MainMenu : MonoBehaviour
         }
         else if (menulevel == 2)
         {
-            GUI.BeginGroup(new Rect((Screen.width - 500) / 2, (Screen.height - 300) / 2, 500, 300), "", "Box");
-            string Username = GUI.TextField(new Rect(0, 0, 200, 28), Dataharvester.Username.getString());
-            Dataharvester.Username.set(Username);
-            string Password = GUI.PasswordField(new Rect(0, 55, 200, 28), Dataharvester.Password.getString(), char.Parse("*"));
-            Dataharvester.Password.set(Password);
-            bool RememberMe = GUI.Toggle(new Rect(0, 110, 200, 50), Dataharvester.RememberMe.getBool(), "Rememberme");
-            Dataharvester.RememberMe.set(RememberMe);
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
-            {
-                menulevel = 0;
-            }
-            GUI.EndGroup();
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
-            {
-                saveUserCredentials(RememberMe,Username,Password);
-                menulevel = 0;
-            }
+            //GUI.BeginGroup(new Rect((Screen.width - 500) / 2, (Screen.height - 300) / 2, 500, 300), "", "Box");
+            //string Username = GUI.TextField(new Rect(0, 0, 200, 28), Dataharvester.Username.getString());
+            //Dataharvester.Username.set(Username);
+            //string Password = GUI.PasswordField(new Rect(0, 55, 200, 28), Dataharvester.Password.getString(), char.Parse("*"));
+            //Dataharvester.Password.set(Password);
+            //bool RememberMe = GUI.Toggle(new Rect(0, 110, 200, 50), Dataharvester.RememberMe.getBool(), "Rememberme");
+            //Dataharvester.RememberMe.set(RememberMe);
+            //if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
+            //{
+            //    menulevel = 0;
+            //}
+            //GUI.EndGroup();
+            //if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
+            //{
+            //    saveUserCredentials(RememberMe, Username, Password);
+            //    menulevel = 0;
+            //}
 
         }
     }
 
     private void saveUserCredentials(bool RememberMe, string Username, string Password)
     {
-        if (RememberMe)
-        {
-            Dataharvester.Username.set(Username);
-            Dataharvester.Password.set(Password);
-            Dataharvester.RememberMe.set(RememberMe);
-            Dataharvester.set("Username", Username);
-            Dataharvester.set("Password", Password);
-            Dataharvester.set("RememberMe", RememberMe);
-        }
-        else
-        {
-            Dataharvester.Username.set("Username");
-            Dataharvester.Password.set("");
-            Dataharvester.RememberMe.set(RememberMe);
-            Dataharvester.set("Username", "Username");
-            Dataharvester.set("Password", "");
-            Dataharvester.set("RememberMe", "RememberMe");
-        }
+        //    if (RememberMe)
+        //    {
+        //        Dataharvester.Username.set(Username);
+        //        Dataharvester.Password.set(Password);
+        //        Dataharvester.RememberMe.set(RememberMe);
+        //        Dataharvester.set("Username", Username);
+        //        Dataharvester.set("Password", Password);
+        //        Dataharvester.set("RememberMe", RememberMe);
+        //    }
+        //    else
+        //    {
+        //        Dataharvester.Username.set("Username");
+        //        Dataharvester.Password.set("");
+        //        Dataharvester.RememberMe.set(RememberMe);
+        //        Dataharvester.set("Username", "Username");
+        //        Dataharvester.set("Password", "");
+        //        Dataharvester.set("RememberMe", "RememberMe");
+        //    }
     }
 }

@@ -21,7 +21,6 @@ public class game : MonoBehaviour {
         DontDestroyOnLoad(this);
         errorHandler = new ErrorPopup();
         gameObject.AddComponent<Dataharvester>();
-        gameObject.AddComponent<MainMenu>();
         sServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         IPAddress remoteIPAddress = IPAddress.Parse(serverAddress);
         IPEndPoint remoteEndPoint = new IPEndPoint(remoteIPAddress, serverPort);
