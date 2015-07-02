@@ -130,6 +130,7 @@ public class Client : MonoBehaviour
     }
     private void ConnectionToServerLost()
     {
+        Main.errorHandler.add("Connection Lost", "Your Connection to the Server has beed Terminated.\nTry Again Later");
         Debug.Log("Server disconnected");
         socket.Close();
         thread.Abort();
