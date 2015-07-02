@@ -74,13 +74,13 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Packet">
- <HintPath>C:/Users/Admin/Documents/Space/Assets/Resources/Libs/Packet.dll</HintPath>
+ <HintPath>C:/Users/Zeeshan/Documents/GitHub/Space/Assets/Resources/Libs/Packet.dll</HintPath>
  </Reference>
  <Reference Include="SmartLocalization_Runtime">
- <HintPath>C:/Users/Admin/Documents/Space/Assets/SmartLocalization/SmartLocalization_Runtime.dll</HintPath>
+ <HintPath>C:/Users/Zeeshan/Documents/GitHub/Space/Assets/SmartLocalization/SmartLocalization_Runtime.dll</HintPath>
  </Reference>
  <Reference Include="SmartLocalization_Editor">
- <HintPath>C:/Users/Admin/Documents/Space/Assets/SmartLocalization/Editor/SmartLocalization_Editor.dll</HintPath>
+ <HintPath>C:/Users/Zeeshan/Documents/GitHub/Space/Assets/SmartLocalization/Editor/SmartLocalization_Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

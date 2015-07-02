@@ -57,4 +57,9 @@ public class Main : MonoBehaviour
     {
         networkClient.CloseConnection();
     }
+
+    public void PrintMessage(string message)
+    {
+        errorHandler.add("Button Error: ", message);
+    }
 }

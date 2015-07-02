@@ -59,6 +59,7 @@
      <Compile Include="Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs" />
      <Compile Include="Assets\Resources\Scripts\OLD\game.cs" />
      <Compile Include="Assets\Resources\Scripts\Reference.cs" />
+     <Compile Include="Assets\Resources\Scripts\TextHeightAdjuster.cs" />
      <Compile Include="Assets\SmartLocalization\Examples\LoadAllLanguages.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUILabel.cs" />
      <Compile Include="Assets\SmartLocalization\Scripts\NGUI\SL_NGUISpriteAtlas.cs" />
@@ -82,10 +83,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Packet">
- <HintPath>C:/Users/Admin/Documents/Space/Assets/Resources/Libs/Packet.dll</HintPath>
+ <HintPath>C:/Users/Zeeshan/Documents/GitHub/Space/Assets/Resources/Libs/Packet.dll</HintPath>
  </Reference>
  <Reference Include="SmartLocalization_Runtime">
- <HintPath>C:/Users/Admin/Documents/Space/Assets/SmartLocalization/SmartLocalization_Runtime.dll</HintPath>
+ <HintPath>C:/Users/Zeeshan/Documents/GitHub/Space/Assets/SmartLocalization/SmartLocalization_Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

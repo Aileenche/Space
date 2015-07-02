@@ -111,7 +111,7 @@ public class Client : MonoBehaviour
                 break;
             case PacketType.Registration:
                 ID = p.data[0];
-                Packet packet = new Packet(PacketType.Chat, ID);
+                Packet packet = new Packet(PacketType.Registration, ID);
                 packet.data.Add(login);
                 packet.data.Add("Enter to Chat");
                 socket.Send(packet.ToBytes());
