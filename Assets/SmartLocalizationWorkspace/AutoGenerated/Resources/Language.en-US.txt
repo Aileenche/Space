@@ -136,7 +136,7 @@ Try again Later.</value>
 		<value>Settings</value>
 	</data>
 	<data name="settingmenu_button_antialiasing" xml:space="preserve">
-		<value>Change Antialiasing</value>
+		<value>Anti-Aliasing</value>
 	</data>
 	<data name="settingsmenu_button_back" xml:space="preserve">
 		<value>Back</value>

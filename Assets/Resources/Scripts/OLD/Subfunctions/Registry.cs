@@ -3,6 +3,30 @@ using System.Collections;
 using System;
 public class Registry
 {
+    public static int getRegistryInt(string key)
+    {
+        Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(Reference.registryname);
+        object retval;
+        try
+        {
+            retval = retkey.GetValue(key);
+        }
+        catch (Exception)
+        {
+            retval = "notSetYet";
+        }
+        if (retval == null)
+        {
+            object standardKey = hasStandardValue(key);
+            if (standardKey != "ThereisnoKeyforThat!")
+            {
+                setRegistryEntry(key, standardKey);
+                return int.Parse(standardKey.ToString());
+            }
+            return -100;
+        }
+        return int.Parse(retval.ToString());
+    }
     public static string getRegistryEntry(string key)
     {
         Microsoft.Win32.RegistryKey retkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(Reference.registryname);

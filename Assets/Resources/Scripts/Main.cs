@@ -33,7 +33,7 @@ public class Main : MonoBehaviour
             Error err = (Error)errorHandler.liste[0];
             errorWindow = GUI.Window(0, errorWindow, DoMyWindow, err.getTitle());
         }
-        menu.OnGUI();
+        //menu.OnGUI();
     }
     void DoMyWindow(int windowID)
     {
