@@ -156,4 +156,7 @@ Try again Later.</value>
 	<data name="settingsmenu_button_lowerdetails" xml:space="preserve">
 		<value>Set Details Lower</value>
 	</data>
+	<data name="settingmenu_button_antialiasing" xml:space="preserve">
+		<value>Change Antialiasing</value>
+	</data>
 </root>

@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SmartLocalization;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-
+    public static Main singleton;
     public static ErrorPopup errorHandler = new ErrorPopup();
     private Rect errorWindow = new Rect((Screen.width - 800) / 2, (Screen.height - 300) / 2, 800, 300);
     public static Client networkClient = new Client();
     public static MainMenu menu = new MainMenu();
+    public GUISkin skin;
 
     void Start()
     {
@@ -16,14 +18,13 @@ public class Main : MonoBehaviour
         Functions.setupClientQuality();
         networkClient.Start();
         Main.networkClient.send(new PacketConnector.Packet(PacketConnector.PacketType.getNews, Main.networkClient.ID));
+        singleton = this;
     }
-
     void Update()
     {
         transform.Rotate(Vector3.left * Time.deltaTime);
         transform.Rotate(Vector3.up * Time.deltaTime);
     }
-
     void OnGUI()
     {
         if (errorHandler.liste.Count > 0)
@@ -32,7 +33,7 @@ public class Main : MonoBehaviour
             Error err = (Error)errorHandler.liste[0];
             errorWindow = GUI.Window(0, errorWindow, DoMyWindow, err.getTitle());
         }
-        //menu.OnGUI();
+        menu.OnGUI();
     }
     void DoMyWindow(int windowID)
     {

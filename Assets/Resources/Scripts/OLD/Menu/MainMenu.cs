@@ -4,6 +4,7 @@ using SmartLocalization;
 
 public class MainMenu
 {
+
     // Use this for initialization
     private int menulevel = 0;
     public static string news = "";
@@ -12,21 +13,26 @@ public class MainMenu
         //LanguageManager.Instance.ChangeLanguage(Dataharvester.Language.getString());
     }
 
-
+    public static void close_game()
+    {
+        Application.Quit();
+    }
     public void OnGUI()
     {
+        GUI.skin = Main.singleton.skin;
+
         GUI.color = Color.cyan;
         if (menulevel == 0)
         {
-            if (GUI.Button(new Rect(30, Screen.height - 105, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
+            if (GUI.Button(new Rect(30, Screen.height - 105, 250, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_connect")))
             {
                 menulevel = 2;
             }
-            if (GUI.Button(new Rect(30, Screen.height - 70, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
+            if (GUI.Button(new Rect(30, Screen.height - 70, 250, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_settings")))
             {
                 menulevel = 1;
             }
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_exit")))
+            if (GUI.Button(new Rect(30, Screen.height - 35, 250, 25), LanguageManager.Instance.GetTextValue("mainmenu_button_exit")))
             {
                 Application.Quit();
             }
@@ -45,18 +51,14 @@ public class MainMenu
         {
             if (GUI.Button(new Rect(30, Screen.height - 210, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_language")))
             {
-                //if (LanguageManager.Instance.CurrentlyLoadedCulture.languageCode =="de-DE")
-                //{
-                //    LanguageManager.Instance.ChangeLanguage("en-US");
-                //    Dataharvester.Language.set("en-US");
-                //    Dataharvester.set("Language","en-US");
-                //}
-                //else
-                //{
-                //    LanguageManager.Instance.ChangeLanguage("de-DE");
-                //    Dataharvester.Language.set("de-DE");
-                //    Dataharvester.set("Language", "de-DE");
-                //}
+                if (LanguageManager.Instance.CurrentlyLoadedCulture.languageCode == "de-DE")
+                {
+                    LanguageManager.Instance.ChangeLanguage("en-US");
+                }
+                else
+                {
+                    LanguageManager.Instance.ChangeLanguage("de-DE");
+                }
             }
             if (GUI.Button(new Rect(30, Screen.height - 175, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_fullscreen")))
             {
@@ -107,7 +109,7 @@ public class MainMenu
 
 
             //Back
-            if (GUI.Button(new Rect(30, Screen.height - 35, 100, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
+            if (GUI.Button(new Rect(30, Screen.height - 35, 250, 25), LanguageManager.Instance.GetTextValue("settingsmenu_button_back")))
             {
                 menulevel = 0;
             }

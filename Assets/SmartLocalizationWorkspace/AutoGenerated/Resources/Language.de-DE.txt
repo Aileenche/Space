@@ -135,6 +135,9 @@ Versuch es bitte später nochmal.</value>
 	<data name="mainmenu_button_settings" xml:space="preserve">
 		<value>Einstellungen</value>
 	</data>
+	<data name="settingmenu_button_antialiasing" xml:space="preserve">
+		<value>Antialiasing</value>
+	</data>
 	<data name="settingsmenu_button_back" xml:space="preserve">
 		<value>Zurück</value>
 	</data>

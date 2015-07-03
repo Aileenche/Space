@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Functions
+public class Functions : MonoBehaviour
 {
     public static void setupClientQuality()
     {
@@ -10,5 +10,10 @@ public class Functions
         Screen.SetResolution(Int32.Parse(Registry.getRegistryEntry("screenwidth")), Int32.Parse(Registry.getRegistryEntry("screenheight")), Registry.getRegistryBool("fullscreen"));
         QualitySettings.antiAliasing = Int32.Parse(Registry.getRegistryEntry("antialiasing"));
         Application.runInBackground = Registry.getRegistryBool("runinbackground");
+    }
+
+    public void exit_game()
+    {
+        Application.Quit();
     }
 }

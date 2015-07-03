@@ -2,10 +2,12 @@ Mono path[0] = 'C:/Users/Admin/Documents/Space/Space!_Data/Managed'
 Mono path[1] = 'C:/Users/Admin/Documents/Space/Space!_Data/Mono'
 Mono config path = 'C:/Users/Admin/Documents/Space/Space!_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Admin/Documents/Space/Space!_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55115
-Multi-casting "[IP] 192.168.178.64 [Port] 55115 [Flags] 2 [Guid] 2482565021 [EditorId] 680680722 [Version] 1048832 [Id] WindowsPlayer(Sunny) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.178.64:55115]
+PlayerConnection initialized network socket : 0.0.0.0 55214
+Multi-casting "[IP] 192.168.178.64 [Port] 55214 [Flags] 2 [Guid] 1448203369 [EditorId] 1663644282 [Version] 1048832 [Id] WindowsPlayer(Sunny) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.178.64:55214]
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+d3d12: no D3D12 installed.
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -27,184 +29,30 @@ Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\Packet.dll
 Loading C:\Users\Admin\Documents\Space\Space!_Data\Managed\Packet.dll into Unity Child Domain
 Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\SmartLocalization_Runtime.dll (this message is harmless)
 Loading C:\Users\Admin\Documents\Space\Space!_Data\Managed\SmartLocalization_Runtime.dll into Unity Child Domain
-- Completed reload, in  0.042 seconds
+- Completed reload, in  0.078 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\System.dll (this message is harmless)
-Fetching rememberme
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:91)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
+The referenced script on this Behaviour is missing!
  
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1715)
 
-Returned true
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:91)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
+The referenced script on this Behaviour is missing!
  
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1715)
 
-Fetching username
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:92)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned Username
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:92)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching password
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:93)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:93)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching fullscreen
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:94)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned true
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:94)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching screenwidth
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:95)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned 1920
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:95)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching screenheight
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:96)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned 1080
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:96)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching antialiasing
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:97)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned 8
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:97)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching vsync
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:98)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned 1
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:98)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Fetching runinbackground
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:107)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:99)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 107)
-
-Returned true
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Registry:createIfNotExist(String, String) (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:109)
-Registry:setupRegistry() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\OLD\Subfunctions\Registry.cs:99)
-Client:Start() (at C:\Users\Admin\Documents\Space\Assets\Resources\Scripts\Network\Client.cs:76)
- 
-(Filename: C:/Users/Admin/Documents/Space/Assets/Resources/Scripts/OLD/Subfunctions/Registry.cs Line: 109)
-
-Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\System.Xml.dll (this message is harmless)
-Setting up 3 worker threads for Enlighten.
-  Thread -> id: f30 -> priority: 1 
-  Thread -> id: 2148 -> priority: 1 
-  Thread -> id: 6044 -> priority: 1 
-Aileen
+Got News!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
+Setting up 3 worker threads for Enlighten.
+  Thread -> id: 7784 -> priority: 1 
+  Thread -> id: 607c -> priority: 1 
+  Thread -> id: 689c -> priority: 1 
+Platform assembly: C:\Users\Admin\Documents\Space\Space!_Data\Managed\System.Xml.dll (this message is harmless)
 Server disconnected
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
